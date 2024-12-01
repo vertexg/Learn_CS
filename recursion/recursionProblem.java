@@ -70,6 +70,29 @@ public class recursionProblem {
     return splitAndAddHelper(digits / 10, sum + digits % 10);
   }
 
+  // ________________________________________________________________________
+  public static int howLongToReachFundGoal(int capitalMoney, int goalMoney, int interest) {
+    return howLongToReachFundGoalHelper(capitalMoney, goalMoney, interest, 0);
+  }
+
+  private static int howLongToReachFundGoalHelper(double capitalMoney, double goalMoney, double interest, int years) {
+    if (capitalMoney >= goalMoney) {
+      return years;
+    }
+    if (years >= 80) {
+      return 80;
+    }
+    if (years % 2 == 0) {
+      goalMoney *= 1.02;
+    } else {
+      goalMoney *= 1.03;
+    }
+
+    capitalMoney *= (1 + interest / 100.0);
+    return howLongToReachFundGoalHelper(capitalMoney, goalMoney, interest, years + 1);
+  }
+
+  // ________________________________________________________________________
   public static void main(String[] args) {
     System.out.println(numberOfDots(5)); // 15
     System.out.println(totalSquareArea(5)); // 225
@@ -77,5 +100,6 @@ public class recursionProblem {
     System.out.println(reverseString("Hello")); // olleH
     System.out.println(countSquare(8, 12)); // 24
     System.out.println(splitAndAdd(12345)); // 15
+    System.out.println(howLongToReachFundGoal(1000, 2000, 5)); // 29
   }
 }
