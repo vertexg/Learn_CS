@@ -49,6 +49,29 @@ public class sideEffect {
     return x * x;
   }
 
+  // --------------------------------------------------------------------------------------------------
+  public static int recursiveDigitsAdded(long digits) {
+    long num = splitAndAdd(digits);
+    if (num < 10) {
+      return (int) num;
+    }
+    return (int) num + recursiveDigitsAdded(num);
+
+  }
+
+  public static long splitAndAdd(long digits) {
+    return splitAndAddHelper(digits, 0);
+
+  }
+
+  public static long splitAndAddHelper(long digits, long sum) {
+    if (digits == 0) {
+      return sum;
+    }
+    return splitAndAddHelper((digits / 10), (sum + digits % 10));
+  }
+
+  // --------------------------------------------------------------------------------------------------
   // 副作用なしの関数
   public static int counterProcess() {
     int counter = 0;

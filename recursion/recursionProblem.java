@@ -93,6 +93,27 @@ public class recursionProblem {
   }
 
   // ________________________________________________________________________
+  public static int fibonacci(int n) {
+    if (n == 0) {
+      return 0;
+    } else if (n == 1) {
+      return 1;
+    } else {
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+  }
+
+  // 末尾再帰
+  public static int fibonacciTail(int n) {
+    return fibonacciTailHelper(0, 1, n);
+  }
+
+  public static int fibonacciTailHelper(int a, int b, int n) {
+    if (n == 0)
+      return a;
+    return fibonacciTailHelper(b, a + b, n - 1);
+  }
+
   public static void main(String[] args) {
     System.out.println(numberOfDots(5)); // 15
     System.out.println(totalSquareArea(5)); // 225
