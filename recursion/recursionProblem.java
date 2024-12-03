@@ -114,6 +114,28 @@ public class recursionProblem {
     return fibonacciTailHelper(b, a + b, n - 1);
   }
 
+  // ________________________________________________________________________
+  public static int recursiveDigitsAdded(long digits) {
+    long num = splitAndAdd(digits);
+    if (num < 10) {
+      return (int) num;
+    }
+    return (int) num + recursiveDigitsAdded(num);
+
+  }
+
+  public static long splitAndAdd(long digits) {
+    return splitAndAddHelper(digits, 0);
+
+  }
+
+  public static long splitAndAddHelper(long digits, long sum) {
+    if (digits == 0) {
+      return sum;
+    }
+    return splitAndAddHelper((digits / 10), (sum + digits % 10));
+  }
+
   public static void main(String[] args) {
     System.out.println(numberOfDots(5)); // 15
     System.out.println(totalSquareArea(5)); // 225
@@ -122,5 +144,8 @@ public class recursionProblem {
     System.out.println(countSquare(8, 12)); // 24
     System.out.println(splitAndAdd(12345)); // 15
     System.out.println(howLongToReachFundGoal(1000, 2000, 5)); // 29
+    System.out.println(fibonacci(10)); // 55
+    System.out.println(fibonacciTail(10)); // 55
+    System.out.println(recursiveDigitsAdded(12345)); // 6
   }
 }
