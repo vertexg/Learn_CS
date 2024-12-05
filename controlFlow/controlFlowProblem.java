@@ -49,6 +49,61 @@ public class controlFlowProblem {
     }
     return result.substring(0, result.length() - 1);
   }
+  // ________________________________________________________________________
+
+  public static boolean isPalindromeInteger(int n) {
+    String str = String.valueOf(n);
+    for (int i = 0; i < str.length() / 2; i++) {
+      if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
+        return false;
+      }
+    }
+    return true;
+
+  }
+
+  public static int sumOfAllPrimes(int n) {
+    return sumOfAllPrimesHelper(n, 0);
+    // 関数を完成させてください
+  }
+
+  public static int sumOfAllPrimesHelper(int n, int sum) {
+    for (int i = 2; i <= n; i++) {
+      if (isPrime(i)) {
+        sum += i;
+      }
+    }
+    return sum;
+  }
+
+  // ________________________________________________________________________
+  public static String decimalToBinary(int decNumber) {
+    String result = "";
+    while (decNumber != 0) {
+      if (decNumber % 2 == 0) {
+        result = "0" + result;
+      } else {
+        result = "1" + result;
+      }
+      decNumber /= 2;
+    }
+    return result;
+
+  }
+
+  // ________________________________________________________________________
+  public static String decimalToHexadecimal(int decNumber) {
+    String hexadecimal = "0123456789ABCDEF";
+    String result = "";
+    while (decNumber != 0) {
+      int remainder = decNumber % 16;
+      result = hexadecimal.charAt(remainder) + result;
+
+      decNumber = decNumber /= 16;
+    }
+    return result;
+
+  }
 
   public static void main(String[] args) {
     System.out.println(isPrime(7)); // 出力: true
