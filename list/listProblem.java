@@ -3,6 +3,8 @@ package list;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import recursion.stack;
+
 public class listProblem {
   public static int addEveryOtherElement(int[] intArr) {
     int sum = 0;
@@ -122,6 +124,42 @@ public class listProblem {
       System.out.print(array[i] + " ");
     }
     System.out.println("]");
+  }
+
+  // ---------------------------------------------------
+  public static int maxAscilString(String[] stringList) {
+    int maxVlaue = returnAscii(stringList[0]);
+    int maxIndex = 0;
+
+    for (int i = 0; i < stringList.length; i++) {
+      if (maxVlaue < returnAscii(stringList[i])) {
+        maxVlaue = returnAscii(stringList[i]);
+        maxIndex = i;
+
+      }
+    }
+    return maxIndex;
+    // 関数を完成させてください
+  }
+
+  public static int returnAscii(String string) {
+    int sum = 0;
+    for (int i = 0; i < string.length(); i++) {
+      sum = sum + (int) string.charAt(i);
+    }
+    return sum;
+  }
+
+  // ---------------------------------------------------
+  public static int[] rotateByTimes(int[] ids, int n) {
+    if (n > ids.length) {
+      n = n % ids.length;
+    }
+    int[] result = new int[ids.length];
+    for (int i = 0; i < ids.length; i++) {
+      result[(i + n) % ids.length] = ids[i];
+    }
+    return result;
   }
 
   public static void main(String[] args) {
