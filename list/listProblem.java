@@ -162,6 +162,56 @@ public class listProblem {
     return result;
   }
 
+  // 時間計算量O(N)
+  // 空間計算量O(1)
+
+  public static void reverseInPlace(int[] arr, int start, int end) {
+
+    int middle = (int) Math.floor((start + end) / 2);
+    for (int i = start; i <= middle; i++) {
+
+      int opposite = start + (end - i);
+      int temp = arr[i];
+      arr[i] = arr[opposite];
+      arr[opposite] = temp;
+    }
+  }
+
+  // 別解
+  // public static void reverseInPlace (int[] arr, int start, int end) {
+
+  // int middle = (int)Math.floor((start + end) / 2);
+  // for(int i = start; i <= middle; i++) {
+
+  // int opposite = start + (end - i);
+  // int temp = arr[i];
+  // arr[i] = arr[opposite];
+  // arr[opposite] = temp;
+  // }
+  // }
+  // public static int[] rotateByTimes(int[] ids, int n) {
+
+  // int r = n % ids.length;
+  // if (r == 0)
+  // return ids;
+
+  // int l = ids.length - 1;
+
+  // reverseInPlace(ids, 0, l);
+  // reverseInPlace(ids, 0, r - 1);
+  // reverseInPlace(ids, r, l);
+
+  // return ids;
+  // }
+
+  public static void printArray(int[] intArr) {
+    System.out.print("[");
+    for (int i = 0; i < intArr.length; i++) {
+      System.out.print(intArr[i] + " ");
+    }
+    System.out.println("]");
+  }
+
   public static void main(String[] args) {
     int[] intArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     System.out.println(addEveryOtherElement(intArr)); // 25
@@ -173,6 +223,8 @@ public class listProblem {
     System.out.println(winnerBlackjack(new String[] { "♥10", "♥6", "♣K" }, new String[] { "♠Q", "♦2", "♥K" })); // false
     char[] alphabet = generateAlphabet('C', 'Z');
     printArray(alphabet);
+    System.out.println(maxAscilString(new String[] { "apple", "banana", "cherry", "date" })); // 2
+    System.out.println(Arrays.toString(rotateByTimes(new int[] { 1, 2, 3, 4, 5 }, 2))); // [4, 5, 1, 2, 3]
 
   }
 }
