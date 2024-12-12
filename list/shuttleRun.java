@@ -5,10 +5,10 @@ public class shuttleRun {
     for (int i = 1; i < records.length; i++) {
       if (records[i - 1] > records[i])
         ;
-      return true;
+      return false;
 
     }
-    return false;
+    return true;
     // 関数を完成させてください
   }
 
