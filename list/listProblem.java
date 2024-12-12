@@ -165,18 +165,6 @@ public class listProblem {
   // 時間計算量O(N)
   // 空間計算量O(1)
 
-  public static void reverseInPlace(int[] arr, int start, int end) {
-
-    int middle = (int) Math.floor((start + end) / 2);
-    for (int i = start; i <= middle; i++) {
-
-      int opposite = start + (end - i);
-      int temp = arr[i];
-      arr[i] = arr[opposite];
-      arr[opposite] = temp;
-    }
-  }
-
   // 別解
   // public static void reverseInPlace (int[] arr, int start, int end) {
 
