@@ -9,7 +9,7 @@ public class primeNumbers {
 
     int count = 2;
 
-　    for (int i = 2; i * i < n; i++) {
+    for (int i = 2; i * i < n; i++) {
       int p = 2;
       while (i * p < n) {
         if (isPrime[i * p]) {
