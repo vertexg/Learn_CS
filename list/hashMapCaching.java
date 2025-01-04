@@ -12,6 +12,7 @@ public class hashMapCaching {
     // ハッシュマップに格納
     for (int i = 0; i < listL.length; i++) {
       hashmap.put(listL[i], listL[i]);
+
     }
 
     // 存在したら true、存在しなければ false
