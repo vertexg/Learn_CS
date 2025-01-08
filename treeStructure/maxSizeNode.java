@@ -1,4 +1,4 @@
-package node;
+package treeStructure;
 
 public class maxSizeNode extends BinaryTree {
   public static BinaryTree<Integer> maximumNode(BinaryTree<Integer> root) {

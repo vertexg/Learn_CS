@@ -6,7 +6,7 @@ public class insertiOneWayList {
     SinglyLinkedListNode<Integer> node = new SinglyLinkedListNode<Integer>(data);
     SinglyLinkedListNode<Integer> current = head;
     for (int i = 0; i < position; i++) {
-      if (current.next == null){
+      if (current.next == null) {
         return head;
       }
       current = current.next;

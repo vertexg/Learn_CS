@@ -1,4 +1,4 @@
-package node;
+package treeStructure;
 
 import java.util.ArrayList;
 
